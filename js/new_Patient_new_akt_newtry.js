@@ -127,7 +127,7 @@ if (index.parentNode) {
 function Patient(vorname, nachname, patnum) {           //Konstruktor Funktion für Patientenobjekt
 
     this.vorname = vorname;
-    this.lastname = lastname;
+    this.nachname = nachname;
     this.patnum = patnum;
     this.addfaktoren = function faktoren() 
                         {
@@ -171,6 +171,7 @@ function Patient(vorname, nachname, patnum) {           //Konstruktor Funktion f
         );
 
         console.log(zeitFaktor);
+
         return(zeitFaktor);
 
     };
@@ -194,17 +195,18 @@ return nachname;
 
 
 function creatobj(){            // objekt erzeugen
-var diabetes = new Patient (getvorname(), getsurname());
+let diabetes = new Patient (getvorname(), getsurname());
 diabetes.addfaktoren();
-
-alert(diabetes.addfaktoren());
+console.log(diabetes.addfaktoren());
+return diabetes;
 };
 
-function showobj(){ //Objekt nach dem speichern anzeigen und in der browser-Datenbank speichern
+function showsaveobj(){ //Objekt nach dem speichern anzeigen und in der browser-Datenbank speichern
 
 let patient = creatobj();
-let show = getElementById("show").innerHtml;
-
+let show = document.getElementById("show");
+console.log(patient.addfaktoren());
+show.innerHTML = "Vorname: " + patient.vorname + "<br>Nachname: " + patient.nachname + "<br>" + patient.addfaktoren();
 
 
 
