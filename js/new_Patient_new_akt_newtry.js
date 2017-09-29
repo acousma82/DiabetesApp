@@ -120,13 +120,13 @@ if (index.parentNode) {
 
     document.write("</div>");// Reihe der tabellen end tag
     document.write("</div>");// Container End Tag
-    document.write("<div class='row'><div class='col-md-2 col-md-offset-10'><button type='button' class='btn btn-primary btn-lg' onclick='saveFaktoren()'>Speichern</button></div></div>");
+    /*document.write("<div class='row'><div class='col-md-2 col-md-offset-10'><button type='button' class='btn btn-primary btn-lg' onclick='saveFaktoren()'>Speichern</button></div></div>");*/
 })();
 
 
-function Patient(surname, lastname, patnum) {           //Konstruktor Funktion für Patientenobjekt
+function Patient(vorname, nachname, patnum) {           //Konstruktor Funktion für Patientenobjekt
 
-    this.surname = surname;
+    this.vorname = vorname;
     this.lastname = lastname;
     this.patnum = patnum;
     this.addfaktoren = function faktoren() 
@@ -178,18 +178,38 @@ function Patient(surname, lastname, patnum) {           //Konstruktor Funktion f
 
 
 
-function createnew() {                      //neues Patienten Objekt wird erstellt
-    var vorname = document.getElementById("vorname").value;
-    var nachname = document.getElementById("surname").value;
+function getvorname() {                      //Vornamen auslesen
+    let vorname = document.getElementById("vorname").value;
+    
    
-   var diabetes = new Patient (vorname, nachname);
-    
-    
-
-  
-    return diabetes;
+    return vorname;
     
 };
+
+function getsurname(){                      // nachnamen auslesen
+let nachname = document.getElementById("surname").value;
+
+return nachname;
+};
+
+
+function creatobj(){            // objekt erzeugen
+var diabetes = new Patient (getvorname(), getsurname());
+diabetes.addfaktoren();
+
+alert(diabetes.addfaktoren());
+};
+
+function showobj(){ //Objekt nach dem speichern anzeigen und in der browser-Datenbank speichern
+
+let patient = creatobj();
+let show = getElementById("show").innerHtml;
+
+
+
+
+
+}   
 
 
 function saveFaktoren(){
