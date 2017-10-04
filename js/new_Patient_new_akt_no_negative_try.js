@@ -147,7 +147,7 @@ function Patient(vorname, nachname, patnum) {           //Konstruktor Funktion f
     this.patnum = patnum;
     this.addfaktoren = function faktoren() 
                         {
-                        let formular = document.forms[1]; //be faktoren formular ist das zweite formular
+                       var formular = document.forms[1]; //be faktoren formular ist das zweite formular
 
                         let speichern = new Array(24);
                         for (i = 0; i < 24; i++) {speichern[i] = formular.elements[i] .value};//speichern[i] = i;
@@ -159,6 +159,9 @@ function Patient(vorname, nachname, patnum) {           //Konstruktor Funktion f
                 window.location.reload(true);
             }
 else {
+                            
+                            
+                            let formular = document.forms[1];
                             function getNum(num) 
                             {
                                 if (num < 0) num = 23;
